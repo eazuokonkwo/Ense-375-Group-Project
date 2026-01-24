@@ -7,14 +7,15 @@
 
 **Team Members:**  
 - **Ebelechukwu Azu-Okonkwo (200457779)**  
-- **Gbolabo Ogunrinde Praise (200494054)** 
+- **Gbolabo Ogunrinde (200494054)** 
 - **Abdulkarim Fattal (200485312)**  
+- **Oluchuckwu Ogana (200477240)**
 
 ---
 
 ## 1. Introduction
 
-Efficient and consistent grades analysis and evaluation is an important aspects in the academic systems. It directly affects the progression and academic standing of the students. And in many educational settings today, grade management is still handled using basic spreedsheets and or manual calculation and this is quite inefficient and more prone to errors. As course structures become more complex and assessment components increase, both students and instructors face challenges in maintaining clarity and accuracy in grade evaluation.
+Efficient and consistent grades analysis and evaluation is an important aspects in the academic systems. It directly affect the progression and academic standing of the students. And in many educational settings today, grade management is still handled using basic spreedsheets and or manual calculation and this is quite inefficient and more prone to errors. As course structures become more complex and assessment components increase, both students and instructors face challenges in maintaining clarity and accuracy in grade evaluation.
 
 This project focuses on the design and development of a Student Grade Analyser intended to support the management and evaluation of academic grades through automated computation and validation. By leveraging established software engineering principles, the project emphasizes the importance of correctness, reliability, and systematic verification in academic software systems.
 
@@ -64,6 +65,8 @@ This project aims to address that gap by creating a Student Grade Analyser. The 
 
 Effective collaboration and communication are essential to the successful completion of this project. The team conducted regular meetings to distribute tasks, track progress, and address challenges encountered during development.
 
+Team membership was finalized on January 23, 2026. The fourth team member joined the project after the completion of the second meeting and will participate in subsequent meetings and development activities.
+
 ### 4.1 Meeting 1
 
 **Time:** January 13, 2026, 9:30 pm – 9:50 pm  
@@ -71,10 +74,9 @@ Effective collaboration and communication are essential to the successful comple
 
 | Team Member | Previous Task | Completion State | Next Task |
 |------------|---------------|------------------|-----------|
-| Karim | N/A | N/A | Draft Introduction section |
-| Ebele | N/A | N/A | Draft Problem Definition section |
-| Praise | N/A | N/A | Set up GitHub repository and REPORT.md structure |
-
+| Abdulkarim | N/A | N/A | Draft Introduction section |
+| Ebelechukwu | N/A | N/A | Draft Problem Definition section |
+| Gbolabo | N/A | N/A | Set up GitHub repository and REPORT.md structure |
 ---
 ### 4.2 Meeting 2
 
@@ -83,9 +85,9 @@ Effective collaboration and communication are essential to the successful comple
 
 | Team Member | Previous Task | Completion State | Next Task |
 |------------|---------------|------------------|-----------|
-| Karim | Draft Introduction section | 100% | Review and refine Introduction |
-| Ebele | Draft Problem Definition section | 100% | Assist with Design Requirements (Functions and Objectives) |
-| Praise | GitHub repository setup and REPORT.md structure | 100% | Draft Design Constraints and update REPORT.md |
+| Abdulkarim | Draft Introduction section | 100% | Review and refine Introduction |
+| Ebelechukwu | Draft Problem Definition section | 100% | Assist with Design Requirements (Functions and Objectives) |
+| Gbolabo | GitHub repository setup and REPORT.md structure | 100% | Draft Design Constraints and update REPORT.md |
 
 ---
 
