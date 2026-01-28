@@ -15,12 +15,11 @@
 
 ## 1. Introduction
 
-Efficient and consistent grades analysis and evaluation is an important aspects in the academic systems. It directly affect the progression and academic standing of the students. And in many educational settings today, grade management is still handled using basic spreedsheets and or manual calculation and this is quite inefficient and more prone to errors. As course structures become more complex and assessment components increase, both students and instructors face challenges in maintaining clarity and accuracy in grade evaluation.
+Accurate and consistent grade analysis plays an important role in academic systems, as it directly affects students’ academic standing and progression. Despite this importance, many educational environments still rely on basic spreadsheets or manual calculations to manage grades. These approaches are often time-consuming, inefficient, and more prone to errors. As courses become more complex and include a growing number of assessments, both students and instructors can struggle to keep track of grades clearly and accurately.
 
-This project focuses on the design and development of a Student Grade Analyser intended to support the management and evaluation of academic grades through automated computation and validation. By leveraging established software engineering principles, the project emphasizes the importance of correctness, reliability, and systematic verification in academic software systems.
+This project focuses on the design and development of a Student Grade Analyser that helps simplify and improve the process of managing and evaluating academic grades through automated calculations and validation. By applying core software engineering principles, the system is designed to produce reliable and accurate results while reducing human error. The project emphasizes the importance of building correct and dependable software, especially in systems that directly impact students’ academic outcomes.
 
-The remainder of this report is organized as follows. Section 2 defines the design problem and outlines the functional requirements, objectives, and constraints of the proposed system. Section 3 presents the iterative design solutions and the final selected design, with an emphasis on testing and validation. Sections 4 and 5 describe the team’s collaboration and project management approach, respectively. Finally, Section 6 concludes the report and discusses limitations and potential future enhancements.
-
+The rest of this report is structured as follows. Section 2 introduces the design problem and describes the system’s objectives, requirements, and constraints. Section 3 explains the design process and presents the final solution, with a focus on testing and validation. Sections 4 and 5 outline the team’s collaboration and project management approaches. Finally, Section 6 concludes the report and discusses limitations of the system along with possible future improvements.
 ---
 
 ## 2. Design Problem
