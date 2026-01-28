@@ -20,7 +20,7 @@ Accurate and consistent grade analysis plays an important role in academic syste
 This project focuses on the design and development of a Student Grade Analyser that helps simplify and improve the process of managing and evaluating academic grades through automated calculations and validation. By applying core software engineering principles, the system is designed to produce reliable and accurate results while reducing human error. The project emphasizes the importance of building correct and dependable software, especially in systems that directly impact students’ academic outcomes.
 
 The rest of this report is structured as follows. Section 2 introduces the design problem and describes the system’s objectives, requirements, and constraints. Section 3 explains the design process and presents the final solution, with a focus on testing and validation. Sections 4 and 5 outline the team’s collaboration and project management approaches. Finally, Section 6 concludes the report and discusses limitations of the system along with possible future improvements.
----
+
 
 ## 2. Design Problem
 
