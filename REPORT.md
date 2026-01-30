@@ -132,7 +132,7 @@ Team membership was finalized on January 23, 2026. The fourth team member joined
 | Abdulkarim | Assist with Design Requirements (Objectives) | 50% | Assist with Design Requirements (Objectives) |
 | Ebelechukwu | Assist with Design Requirements (Functions) | 50% | Assist with Design Requirements (Functions) |
 | Gbolabo | Draft Design Constraints and update REPORT.md | 50% | Draft Design Constraints and update REPORT.md |
-| Oluchuckwu | New member onboarding | N/A | Review and refine Introduction |
+| Oluchuckwu | New member onboarding | 100% | Review and refine Introduction |
 
 ---
 
