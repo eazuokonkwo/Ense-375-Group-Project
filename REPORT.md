@@ -116,7 +116,7 @@ Team membership was finalized on January 23, 2026. The fourth team member joined
 
 | Team Member | Previous Task | Completion State | Next Task |
 |------------|---------------|------------------|-----------|
-| Abdulkarim | Draft Introduction section | 100% |  | Assist with Design Requirements (Objectives)
+| Abdulkarim | Draft Introduction section | 100% | Assist with Design Requirements (Objectives) | 
 | Ebelechukwu | Draft Problem Definition section | 100% | Assist with Design Requirements (Functions) |
 | Gbolabo | GitHub repository setup and REPORT.md structure | 100% | Draft Design Constraints and update REPORT.md |
 
