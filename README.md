@@ -30,7 +30,7 @@ This project will be completed as a group for **ENSE 375 – Software Testing an
 - **Ebelechukwu Azu-Okonkwo (200457779)**  
 - **Gbolabo Ogunrinde (200494054)** 
 - **Abdulkarim Fattal (200485312)**  
-- **Oluchuckwu Ogana (200477240)**
+- **Oluchukwu Ogana (200477240)**
 
 
 ## Version Control
