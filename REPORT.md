@@ -21,6 +21,7 @@ This project focuses on the design and development of a Student Grade Analyser t
 
 The rest of this report is structured as follows. Section 2 introduces the design problem and describes the system’s objectives, requirements, and constraints. Section 3 explains the design process and presents the final solution, with a focus on testing and validation. Sections 4 and 5 outline the team’s collaboration and project management approaches. Finally, Section 6 concludes the report and discusses limitations of the system along with possible future improvements.
 
+---
 
 ## 2. Design Problem
 
@@ -79,16 +80,234 @@ The design and implementation of the Student Grade Analyser are subject to the f
 ---
 
 ## 3. Solution
-*(To be completed)*
 
-### 3.1 Solution 1
-*(To be completed)*
+The design of the Student Grade Analyser followed an iterative engineering process. Multiple architectural solutions were explored and evaluated based on the following criteria:
 
-### 3.2 Solution 2
-*(To be completed)*
+- Testability  
+- Compliance with defined constraints (open-source tools, privacy-first design, no third-party data storage)  
+- Reliability and validation capability  
+- Maintainability and scalability  
 
-### 3.3 Final Solution
-*(To be completed)*
+---
+
+### 3.1 Solution 1 – Spreadsheet-Based System
+
+The first solution considered was implementing the Student Grade Analyser using a structured spreadsheet system (e.g., LibreOffice Calc or Microsoft Excel) with embedded formulas and validation rules.
+
+![solution 1](assets/Solution-1.png)
+
+The system would:
+- Allow manual grade entry.
+- Use built-in formulas to compute weighted averages.
+- Apply conditional formatting to flag invalid entries.
+- Automatically display final grades.
+
+#### Testing Limitations(Why It Was Not Selected)
+
+Although simple to implement, this solution presented significant testing limitations:
+
+| Issue | Testing Limitation |
+|--------|-------------------|
+| Manual formula entry | High risk of hidden formula errors |
+| Limited automation | Difficult to implement automated regression testing |
+| Hard to isolate logic | No modular unit testing possible |
+| Poor version control | Changes in formulas difficult to trace |
+| No systematic input validation framework | Heavy reliance on user discipline |
+
+From a software testing and validation standpoint, this approach lacked:
+
+- Unit testing capability  
+- Structured integration testing  
+- Automated test execution  
+- Clear traceability between requirements and test cases  
+
+Because this project emphasizes structured testing and validation, this solution was rejected.
+
+---
+
+### 3.2 Solution 2 – Monolithic Desktop Application
+
+The second solution involved building a standalone desktop application using Python (Tkinter GUI) or Java (Swing/JavaFX).
+
+![solution 2](assets/Solution-2.png)
+
+Proposed features included:
+- GUI-based grade entry  
+- Built-in validation checks  
+- Weighted calculation engine  
+- Local file storage (CSV or JSON)  
+- Role-based authentication
+
+This was a major improvement because:
+- It allowed structured input validation
+- Business logic could be separated from GUI
+- Unit testing could be applied to calculation functions
+
+#### Testing Strengths
+- Unit testing possible (e.g., PyTest / JUnit) 
+- Boundary value testing for grade ranges  
+- Equivalence partitioning for valid and invalid inputs  
+- Integration testing between interface and calculation modules  
+
+#### Limitations (Why It Was Not Final)
+
+Despite improvements, this solution had architectural weaknesses:
+
+- Tight coupling between GUI and business logic  
+- Limited scalability  
+- Testing GUI interactions was difficult  
+- Harder to simulate concurrent users  
+- Maintainability concerns  
+
+Although testable, this solution did not fully maximize modularity or test independence.
+
+---
+
+### 3.3 Final Solution - Modular Layered Architecture (MVC-Based Web Application)
+
+The final selected solution is a locally hosted, open-source web-based system designed using a layered MVC-inspired architecture.
+
+![Solution 3](assets/Solution-3.png)
+
+The system consists of:
+
+- Presentation Layer (User Interface)
+- Application Logic Layer
+- Input Validation Layer
+- Grade Calculation Engine
+- Local Data Storage (no third-party servers)
+
+#### Rationale for Selection (Why This Solution Was Selected)
+This architecture was selected because it provides:
+
+- Strong separation of concerns  
+- High testability  
+- Independent component testing  
+- Clear validation boundaries  
+- Scalability and maintainability 
+- Compliance with privacy and open-source constraints  
+
+#### Comparative Evaluation
+
+| Feature | Solution 1 | Solution 2 | Final Solution |
+|-----------|-------------|-------------|----------------|
+| Unit Testing | ❌ | ✔ | ✔✔ |
+| Integration Testing | ❌ | Limited | ✔✔ |
+| Automated Testing | ❌ | Partial | ✔✔ |
+| Modularity | ❌ | Moderate | ✔✔ |
+| Constraint Compliance | Partial | ✔ | ✔✔ |
+| Privacy (No 3rd Party Storage) | ✔ | ✔ | ✔✔ |
+| Scalability | ❌ | Limited | ✔ |
+
+The final solution was selected because it maximizes test coverage, modularity, validation control, and alignment with Software Testing and Validation principles.
+
+---
+
+#### 3.3.1 Components
+
+The final system is divided into independent, testable modules:
+
+| Component | Purpose | Primary Testing Method |
+|------------|----------|------------------------|
+| User Interface (UI) | Input and display grades | System Testing, Usability Testing |
+| Input Validation Module | Validate ranges and detect missing fields | Boundary Value Analysis, Equivalence Partitioning |
+| Grade Calculation Engine | Compute weighted averages | Unit Testing, White-Box Testing |
+| Data Storage Module | Store grade records locally | Integration Testing |
+| Authentication Module | Restrict access | Security Testing |
+
+---
+
+#### 3.3.2 Environmental, Societal, Economic, and Safety Considerations
+
+#### Environmental Considerations
+- No paper-based grade calculation
+- A fully digital system reduces printing waste  
+- Local hosting avoids cloud energy dependency  
+
+#### Societal Considerations
+- Protects student privacy  
+- Ensures transparent grade computatio
+- Prevents bias (pure rule-based calculations)  
+- Promotes academic fairness  
+
+#### Economic
+- Uses open-source tools only  
+- No licensing costs  
+- No third-party hosting fees
+- Minimal infrastructure requirements
+
+#### Safety & Reliability
+- Strict input validation prevents incorrect calculations  
+- Error reporting instead of silent failures  
+- Role-based authentication protects data  
+- Test-driven validation approach  
+
+Reliability was ensured through:
+- Unit testing of calculation logic
+- Boundary testing of input fields
+- Regression testing after feature updates
+
+---
+
+#### 3.3.3 Test Cases and Results
+
+#### Test Suite Categories
+
+- Functional Testing  
+- Boundary Value Testing  
+- Equivalence Partitioning  
+- Integration Testing  
+- Negative Testing  
+
+#### Example Test Cases
+
+| Test Case | Input | Expected Output | Result |
+|------------|--------|----------------|--------|
+| TC1 | Grade = 85 | Accept | Pass |
+| TC2 | Grade = -5 | Reject | Pass |
+| TC3 | Total weights ≠ 100% | Error message | Pass |
+| TC4 | Missing final exam | Error detected | Pass |
+| TC5 | Valid full dataset | Correct final grade | Pass |
+
+#### Execution Method
+
+- Unit tests executed using automated test scripts  
+- Integration tests performed manually and automatically  
+- Boundary cases tested (0%, 100%, 49.99%, 50%)  
+- Regression testing after each updates  
+
+All critical test cases passed before final system validation.
+
+---
+
+#### 3.3.4 Limitations and Future Improvements
+
+#### Current Limitations
+
+Despite its strengths, the system has limitations such as:
+
+- Not integrated with institutional LMS    
+- No multi-course analytics dashboard  
+- Limited scalability for large institutions  
+
+#### Future Enhancements
+
+- API integration  
+- Role-based dashboards   
+- Audit trail logging  
+
+---
+
+#### 3.3.5 Conclusion
+
+The selected modular MVC-based solution was chosen because it:
+
+- Satisfies all defined constraints  
+- Maximizes testability  
+- Ensures modular validation  
+- Provides transparent grade computation  
+- Protects student privacy  
+- Supports structured verification and testing principles 
 
 ---
 
@@ -122,7 +341,7 @@ Team membership was finalized on January 23, 2026. The fourth team member joined
 
 ---
 
-### 4.2 Meeting 3
+### 4.3 Meeting 3
 
 **Time:** January 27, 2026, 9:30 pm – 10:00 pm  
 **Agenda:** Onboarding new team member and planning design requirements
@@ -133,6 +352,48 @@ Team membership was finalized on January 23, 2026. The fourth team member joined
 | Ebelechukwu | Assist with Design Requirements (Functions) | 50% | Assist with Design Requirements (Functions) |
 | Gbolabo | Draft Design Constraints and update REPORT.md | 50% | Draft Design Constraints and update REPORT.md |
 | Oluchukwu | New member onboarding | 100% | Review and refine Introduction |
+
+---
+
+### 4.4 Meeting 4
+
+**Time:** January 29, 2026, 9:30 pm – 10:00 pm  
+**Agenda:** Develop and document Solution 1 for the iterative design process
+
+| Team Member | Previous Task | Completion State | Next Task |
+|------------|---------------|------------------|-----------|
+| Abdulkarim | Assist with Design Requirements (Objectives) | 100% | Draft Solution 1 system description |
+| Ebelechukwu | Assist with Design Requirements (Functions) | 100% | Define structural components of Solution 1 |
+| Gbolabo | Draft Design Constraints and update REPORT.md | 100% | Expand workflow explanation |
+| Oluchukwu | Review and refine Introduction | 100% | Identify limitations of Solution 1 |
+
+---
+
+### 4.5 Meeting 5
+
+**Time:** Febraury 6, 2026, 5:30 pm – 6:00 pm  
+**Agenda:** Evaluate Solution 1 and develop improved Solution 2
+
+| Team Member | Previous Task | Completion State | Next Task |
+|------------|---------------|------------------|-----------|
+| Abdulkarim | Draft Solution 1 system description | 100% | Draft solution 2 refined architecture description |
+| Ebelechukwu | Define structural components of Solution 1 | 100% | Define modular separation strategy for solution 2 |
+| Gbolabo | Expand workflow explanation | 100% | Ensure Solution 2 addresses reliability concerns |
+| Oluchukwu | Identify limitations of Solution 1 | 100% | Validate improved responsibility allocation |
+
+---
+
+### 4.6 Meeting 6
+
+**Time:** Febraury 12, 2026, 8:00 pm – 8:30 pm  
+**Agenda:** Final review of Solution 2 and planning for Solution 3 iteration
+
+| Team Member | Previous Task | Completion State | Next Task |
+|------------|--------------|-----------------|-----------|
+| Abdulkarim | Finalize documentation of Solution 2 | 100% | Identify architectural enhancement opportunities |
+| Ebelechukwu | Validate modular separation and logic isolation | 100% | Propose scalability improvements |
+| Gbolabo | Evaluate constraint satisfaction | 100% | Analyze remaining reliability and extensibility gaps |
+| Oluchukwu | Review integration of sections 3.1 and 3.2 | 100% | Outline structural goals for Solution 3 |
 
 ---
 
