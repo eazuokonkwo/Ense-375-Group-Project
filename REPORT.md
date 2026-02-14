@@ -69,12 +69,21 @@ The objectives of the Student Grade Analyser are to be:
 
 The design and implementation of the Student Grade Analyser are subject to the following design constraints, derived from economic, regulatory, reliability, ethical and societal considerations:
 
+**Economic Constraints**
 - The system shall be developed using only free and open-source tools and libraries, ensuring no financial cost to users or developers.
+
+**Regulatory Compliance (Security and Access)**
 - The system shall restrict access to grade data to authorized users only and shall not expose student academic information to unauthorized parties.
 - The system shall not store or transmit student data to external servers or third-party services.
+
+**Reliability Constraints**
 - The system shall detect and report invalid or incomplete input data rather than producing incorrect grade calculations.
+
+**Ethical Constraints**
 - The system shall perform grade calculations strictly according to defined grading rules and shall not alter results based on user identity or subjective criteria.
 - The system shall present grade results transparently, allowing users to understand how final grades are computed.
+
+**Societal Impact Constraints**
 - The system shall be designed to assist academic decision-making without replacing institutional authority or official grading processes.
 
 ---
