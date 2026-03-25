@@ -2,7 +2,7 @@
 
 ## Overview
 This document summarizes the testing approach used for the Student Grade Analyzer.  
-The project emphasizes systematic validation through unit testing, integration testing, and black-box testing techniques, as required in ENSE 375. :contentReference[oaicite:2]{index=2}
+The project emphasizes systematic validation through unit testing, integration testing, and black-box testing techniques, as required in ENSE 375.
 
 ## Function Chosen for White-Box Testing
 The function selected for path testing and data flow testing is:
