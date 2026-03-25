@@ -1,3 +1,7 @@
 com/gradeanalyzer/GradeControllerTest.class
-com/gradeanalyzer/GradeValidatorTest.class
+com/gradeanalyzer/GradeAnalysisServiceTest.class
 com/gradeanalyzer/GradeCalculatorTest.class
+com/gradeanalyzer/IntegrationTest.class
+com/gradeanalyzer/GradeReportServiceTest.class
+com/gradeanalyzer/GradeValidatorTest.class
+com/gradeanalyzer/DataPersistenceServiceTest.class

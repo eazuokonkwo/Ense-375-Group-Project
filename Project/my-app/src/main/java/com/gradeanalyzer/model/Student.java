@@ -3,22 +3,23 @@ package com.gradeanalyzer.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Represents a student and the student's list of assessments.
- */
 public class Student {
-    private String studentId;
+    private String id;
     private String name;
     private List<Assessment> assessments;
 
-    public Student(String studentId, String name) {
-        this.studentId = studentId;
+    public Student() {
+        this.assessments = new ArrayList<>();
+    }
+
+    public Student(String id, String name) {
+        this.id = id;
         this.name = name;
         this.assessments = new ArrayList<>();
     }
 
-    public String getStudentId() {
-        return studentId;
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -29,7 +30,19 @@ public class Student {
         return assessments;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAssessments(List<Assessment> assessments) {
+        this.assessments = assessments;
+    }
+
     public void addAssessment(Assessment assessment) {
-        assessments.add(assessment);
+        this.assessments.add(assessment);
     }
 }

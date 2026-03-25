@@ -4,59 +4,51 @@ import com.gradeanalyzer.model.Assessment;
 
 import java.util.List;
 
-/**
- * Handles all validation rules for grade inputs.
- */
 public class GradeValidator {
 
-    public boolean isValidScore(double score) {
-        return score >= 0 && score <= 100;
+    public void validateStudentId(String id) {
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("Student ID cannot be empty.");
+        }
     }
 
-    public boolean isValidWeight(double weight) {
-        return weight > 0 && weight <= 100;
+    public void validateStudentName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Student name cannot be empty.");
+        }
     }
 
-    public boolean hasAssessments(List<Assessment> assessments) {
-        return assessments != null && !assessments.isEmpty();
-    }
-
-    public boolean totalWeightIs100(List<Assessment> assessments) {
-        if (!hasAssessments(assessments)) {
-            return false;
+    public void validateAssessment(Assessment assessment) {
+        if (assessment == null) {
+            throw new IllegalArgumentException("Assessment cannot be null.");
         }
 
-        double total = 0;
+        if (assessment.getName() == null || assessment.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Assessment name cannot be empty.");
+        }
+
+        if (assessment.getScore() < 0 || assessment.getScore() > 100) {
+            throw new IllegalArgumentException("Assessment score must be between 0 and 100.");
+        }
+
+        if (assessment.getWeight() <= 0 || assessment.getWeight() > 100) {
+            throw new IllegalArgumentException("Assessment weight must be greater than 0 and at most 100.");
+        }
+    }
+
+    public void validateAssessmentList(List<Assessment> assessments) {
+        if (assessments == null || assessments.isEmpty()) {
+            throw new IllegalArgumentException("Assessment list cannot be empty.");
+        }
+
+        double totalWeight = 0.0;
         for (Assessment assessment : assessments) {
-            total += assessment.getWeight();
+            validateAssessment(assessment);
+            totalWeight += assessment.getWeight();
         }
 
-        return Math.abs(total - 100.0) < 0.0001;
-    }
-
-    public boolean allScoresValid(List<Assessment> assessments) {
-        if (!hasAssessments(assessments)) {
-            return false;
+        if (Math.abs(totalWeight - 100.0) > 0.0001) {
+            throw new IllegalArgumentException("Total assessment weight must equal 100%.");
         }
-
-        for (Assessment assessment : assessments) {
-            if (!isValidScore(assessment.getScore())) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean allWeightsValid(List<Assessment> assessments) {
-        if (!hasAssessments(assessments)) {
-            return false;
-        }
-
-        for (Assessment assessment : assessments) {
-            if (!isValidWeight(assessment.getWeight())) {
-                return false;
-            }
-        }
-        return true;
     }
 }

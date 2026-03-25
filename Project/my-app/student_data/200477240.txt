@@ -1,0 +1,6 @@
+200477240
+Olly Ogana
+3
+Assignment|85.0|20.0
+Midterm|78.0|30.0
+Final|90.0|50.0

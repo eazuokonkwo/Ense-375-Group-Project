@@ -1,41 +1,27 @@
-import org.junit.jupiter.api.BeforeEach;
+package com.gradeanalyzer;
+
+import com.gradeanalyzer.model.Assessment;
+import com.gradeanalyzer.model.Student;
+import com.gradeanalyzer.service.DataPersistenceService;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class DataPersistenceServiceTest {
-    private DataPersistenceService dataPersistenceService;
-    private String testFilePath = "testdata.txt";
-
-    @BeforeEach
-    public void setUp() {
-        dataPersistenceService = new DataPersistenceService();
-    }
 
     @Test
-    public void testSaveData_ShouldSaveDataSuccessfully() throws IOException {
-        String dataToSave = "Test data";
-        dataPersistenceService.saveData(testFilePath, dataToSave);
-        String loadedData = dataPersistenceService.loadData(testFilePath);
-        assertEquals(dataToSave, loadedData,"Data loaded does not match data saved!");
-    }
+    void testSaveAndLoadStudent() throws Exception {
+        DataPersistenceService service = new DataPersistenceService();
 
-    @Test
-    public void testLoadData_FileNotFound_ShouldThrowException() {
-        Exception exception = assertThrows(FileNotFoundException.class, () -> {
-            dataPersistenceService.loadData("nonexistentfile.txt");
-        });
-        assertEquals("File not found: nonexistentfile.txt", exception.getMessage());
-    }
+        Student student = new Student("99999", "Test Student");
+        student.addAssessment(new Assessment("Assignment", 85, 40));
+        student.addAssessment(new Assessment("Final", 90, 60));
 
-    @Test
-    public void testSaveData_InvalidPath_ShouldThrowException() {
-        String invalidPath = "/invalidpath/testdata.txt";
-        Exception exception = assertThrows(IOException.class, () -> {
-            dataPersistenceService.saveData(invalidPath, "Test data");
-        });
-        assertEquals("Invalid file path: /invalidpath/testdata.txt", exception.getMessage());
+        service.saveStudent(student);
+        Student loaded = service.loadStudent("99999");
+
+        assertEquals("99999", loaded.getId());
+        assertEquals("Test Student", loaded.getName());
+        assertEquals(2, loaded.getAssessments().size());
     }
 }

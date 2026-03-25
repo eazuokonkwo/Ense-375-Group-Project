@@ -1,55 +1,86 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
-import java.io.File;
-import java.io.IOException;
+package com.gradeanalyzer.service;
+
+import com.gradeanalyzer.model.Assessment;
+import com.gradeanalyzer.model.Student;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataPersistenceService {
-
-    private static final String DATA_FILE_PATH = "student_data.json";
-    private ObjectMapper objectMapper;
+    private static final String DATA_DIR = "student_data";
 
     public DataPersistenceService() {
-        this.objectMapper = new ObjectMapper();
-    }
-
-    public void saveStudentData(Student student) throws IOException {
-        JsonNode studentData = objectMapper.valueToTree(student);
-        objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(DATA_FILE_PATH), studentData);
-    }
-
-    public Student loadStudentData() throws IOException {
-        return objectMapper.readValue(new File(DATA_FILE_PATH), Student.class);
-    }
-
-    public void deleteStudentData() {
-        File file = new File(DATA_FILE_PATH);
-        if (file.exists()) {
-            file.delete();
+        File dir = new File(DATA_DIR);
+        if (!dir.exists()) {
+            dir.mkdirs();
         }
     }
-}
 
-class Student {
-    private String name;
-    private int grade;
+    public void saveStudent(Student student) throws IOException {
+        Path path = Paths.get(DATA_DIR, student.getId() + ".txt");
 
-    // Constructors, getters, and setters
-    public Student() {}
-    public Student(String name, int grade) {
-        this.name = name;
-        this.grade = grade;
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(student.getId());
+            writer.newLine();
+            writer.write(student.getName());
+            writer.newLine();
+            writer.write(String.valueOf(student.getAssessments().size()));
+            writer.newLine();
+
+            for (Assessment assessment : student.getAssessments()) {
+                writer.write(assessment.getName() + "|" + assessment.getScore() + "|" + assessment.getWeight());
+                writer.newLine();
+            }
+        }
     }
-    public String getName() {
-        return name;
+
+    public Student loadStudent(String studentId) throws IOException {
+        Path path = Paths.get(DATA_DIR, studentId + ".txt");
+        if (!Files.exists(path)) {
+            throw new FileNotFoundException("Student record not found.");
+        }
+
+        try (BufferedReader reader = Files.newBufferedReader(path)) {
+            String id = reader.readLine();
+            String name = reader.readLine();
+            int count = Integer.parseInt(reader.readLine());
+
+            Student student = new Student(id, name);
+            List<Assessment> assessments = new ArrayList<>();
+
+            for (int i = 0; i < count; i++) {
+                String line = reader.readLine();
+                String[] parts = line.split("\\|");
+                assessments.add(new Assessment(parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2])));
+            }
+
+            student.setAssessments(assessments);
+            return student;
+        }
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public List<String> listStudentIds() {
+        List<String> ids = new ArrayList<>();
+        File dir = new File(DATA_DIR);
+        File[] files = dir.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile() && file.getName().endsWith(".txt")) {
+                    ids.add(file.getName().replace(".txt", ""));
+                }
+            }
+        }
+
+        return ids;
     }
-    public int getGrade() {
-        return grade;
-    }
-    public void setGrade(int grade) {
-        this.grade = grade;
+
+    public boolean deleteStudent(String studentId) {
+        File file = new File(DATA_DIR, studentId + ".txt");
+        return file.exists() && file.delete();
     }
 }

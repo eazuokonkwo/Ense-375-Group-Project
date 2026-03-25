@@ -4,7 +4,6 @@ import com.gradeanalyzer.model.Assessment;
 import com.gradeanalyzer.service.GradeValidator;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,37 +13,40 @@ public class GradeValidatorTest {
     private final GradeValidator validator = new GradeValidator();
 
     @Test
-    public void isValidScore_shouldReturnTrue_forBoundaryValues() {
-        assertTrue(validator.isValidScore(0));
-        assertTrue(validator.isValidScore(100));
+    void validAssessmentListShouldPass() {
+        List<Assessment> assessments = List.of(
+                new Assessment("Assignment", 80, 20),
+                new Assessment("Midterm", 75, 30),
+                new Assessment("Final", 90, 50)
+        );
+
+        assertDoesNotThrow(() -> validator.validateAssessmentList(assessments));
     }
 
     @Test
-    public void isValidScore_shouldReturnFalse_forInvalidValues() {
-        assertFalse(validator.isValidScore(-1));
-        assertFalse(validator.isValidScore(101));
+    void invalidScoreShouldThrowException() {
+        Assessment bad = new Assessment("Quiz", 120, 20);
+        assertThrows(IllegalArgumentException.class, () -> validator.validateAssessment(bad));
     }
 
     @Test
-    public void totalWeightIs100_shouldReturnTrue_whenTotalIsExactly100() {
-        List<Assessment> assessments = new ArrayList<>();
-        assessments.add(new Assessment("A1", 80, 40));
-        assessments.add(new Assessment("A2", 90, 60));
+    void invalidWeightTotalShouldThrowException() {
+        List<Assessment> assessments = List.of(
+                new Assessment("Assignment", 80, 20),
+                new Assessment("Midterm", 75, 20),
+                new Assessment("Final", 90, 50)
+        );
 
-        assertTrue(validator.totalWeightIs100(assessments));
+        assertThrows(IllegalArgumentException.class, () -> validator.validateAssessmentList(assessments));
     }
 
     @Test
-    public void totalWeightIs100_shouldReturnFalse_whenTotalIsNot100() {
-        List<Assessment> assessments = new ArrayList<>();
-        assessments.add(new Assessment("A1", 80, 30));
-        assessments.add(new Assessment("A2", 90, 60));
-
-        assertFalse(validator.totalWeightIs100(assessments));
+    void emptyStudentIdShouldThrowException() {
+        assertThrows(IllegalArgumentException.class, () -> validator.validateStudentId(""));
     }
 
     @Test
-    public void hasAssessments_shouldReturnFalse_whenListEmpty() {
-        assertFalse(validator.hasAssessments(new ArrayList<>()));
+    void emptyStudentNameShouldThrowException() {
+        assertThrows(IllegalArgumentException.class, () -> validator.validateStudentName(" "));
     }
 }

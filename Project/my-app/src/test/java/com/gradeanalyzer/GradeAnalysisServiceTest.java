@@ -1,31 +1,52 @@
+package com.gradeanalyzer;
+
+import com.gradeanalyzer.model.Assessment;
+import com.gradeanalyzer.service.GradeAnalysisService;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GradeAnalysisServiceTest {
 
     private final GradeAnalysisService service = new GradeAnalysisService();
 
     @Test
-    public void testCalculateAverageScore() {
-        double result = service.calculateAverageScore(new int[]{90, 80, 70, 60});
-        assertEquals(75.0, result, "The average score should be 75.0");
+    void testCalculateAverageScore() {
+        List<Assessment> assessments = List.of(
+                new Assessment("A1", 90, 20),
+                new Assessment("A2", 80, 30),
+                new Assessment("A3", 70, 50)
+        );
+
+        assertEquals(80.0, service.calculateAverageScore(assessments), 0.0001);
     }
 
     @Test
-    public void testGetHighestScore() {
-        int result = service.getHighestScore(new int[]{90, 80, 70, 60});
-        assertEquals(90, result, "The highest score should be 90");
+    void testGetHighestScore() {
+        List<Assessment> assessments = List.of(
+                new Assessment("A1", 90, 20),
+                new Assessment("A2", 80, 30),
+                new Assessment("A3", 70, 50)
+        );
+
+        assertEquals(90.0, service.getHighestScore(assessments), 0.0001);
     }
 
     @Test
-    public void testGetLowestScore() {
-        int result = service.getLowestScore(new int[]{90, 80, 70, 60});
-        assertEquals(60, result, "The lowest score should be 60");
+    void testGetLowestScore() {
+        List<Assessment> assessments = List.of(
+                new Assessment("A1", 90, 20),
+                new Assessment("A2", 80, 30),
+                new Assessment("A3", 70, 50)
+        );
+
+        assertEquals(70.0, service.getLowestScore(assessments), 0.0001);
     }
 
     @Test
-    public void testGetPerformanceFeedback() {
-        String feedback = service.getPerformanceFeedback(85);
-        assertEquals("Good job!", feedback, "Feedback for score 85 should be 'Good job!'");
+    void testGetPerformanceFeedback() {
+        assertEquals("Good performance. Continue with consistent effort.", service.getPerformanceFeedback(85));
     }
 }

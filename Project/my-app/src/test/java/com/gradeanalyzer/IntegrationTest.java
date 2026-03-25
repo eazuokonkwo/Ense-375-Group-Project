@@ -1,25 +1,31 @@
+package com.gradeanalyzer;
+
+import com.gradeanalyzer.controller.GradeController;
+import com.gradeanalyzer.model.Assessment;
+import com.gradeanalyzer.model.Student;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IntegrationTest {
 
     @Test
-    public void testEndToEndWorkflow() {
-        // Setup test data
-        Student student = new Student("John Doe", 90);
-        GradeCalculator calculator = new GradeCalculator();
-        FeedbackGenerator feedbackGenerator = new FeedbackGenerator();
+    void testEndToEndWorkflow() {
+        GradeController controller = new GradeController();
 
-        // Step 1: Calculate grade
-        String grade = calculator.calculateGrade(student);
-        assertEquals("A", grade);
+        Student student = new Student("12345", "John Doe");
+        student.addAssessment(new Assessment("Assignment", 85, 20));
+        student.addAssessment(new Assessment("Midterm", 78, 30));
+        student.addAssessment(new Assessment("Final", 90, 50));
 
-        // Step 2: Generate feedback
-        String feedback = feedbackGenerator.generateFeedback(student);
-        assertNotNull(feedback);
+        controller.validateStudent(student);
 
-        // Verify complete workflow
-        System.out.println("Grade: " + grade);
-        System.out.println("Feedback: " + feedback);
+        double finalGrade = controller.calculateFinalGrade(student);
+        String letterGrade = controller.getLetterGrade(student);
+        String standing = controller.getStanding(student);
+
+        assertEquals(85.4, finalGrade, 0.0001);
+        assertEquals("A", letterGrade);
+        assertEquals("Pass", standing);
     }
 }

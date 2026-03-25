@@ -1,26 +1,29 @@
 package com.gradeanalyzer.service;
 
-import java.util.List;
-import java.util.Map;
+import com.gradeanalyzer.model.Student;
 
 public class GradeReportService {
 
-    public void generateReport(List<String> assessments) {
-        // Implementation for generating grade reports
-    }
+    public String generateReport(Student student,
+                                 double finalGrade,
+                                 String letterGrade,
+                                 String standing,
+                                 double average,
+                                 double highest,
+                                 double lowest,
+                                 String feedback) {
+        StringBuilder builder = new StringBuilder();
 
-    public Map<String, Object> getAssessmentBreakdown(List<String> assessments) {
-        // Implementation for returning a breakdown of assessments
-        return null;
-    }
+        builder.append("Student ID: ").append(student.getId()).append("\n");
+        builder.append("Student Name: ").append(student.getName()).append("\n");
+        builder.append("Final Grade: ").append(String.format("%.2f%%", finalGrade)).append("\n");
+        builder.append("Letter Grade: ").append(letterGrade).append("\n");
+        builder.append("Standing: ").append(standing).append("\n");
+        builder.append("Average Score: ").append(String.format("%.2f", average)).append("\n");
+        builder.append("Highest Score: ").append(String.format("%.2f", highest)).append("\n");
+        builder.append("Lowest Score: ").append(String.format("%.2f", lowest)).append("\n");
+        builder.append("Feedback: ").append(feedback).append("\n");
 
-    public String getStatistics(List<Integer> grades) {
-        // Implementation for calculating statistics
-        return null;
-    }
-
-    public String getRecommendations(List<Integer> grades) {
-        // Implementation for providing recommendations based on grades
-        return null;
+        return builder.toString();
     }
 }

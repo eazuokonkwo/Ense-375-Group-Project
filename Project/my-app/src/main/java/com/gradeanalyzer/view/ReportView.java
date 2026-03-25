@@ -1,1 +1,22 @@
-import javax.swing.*;\nimport java.awt.*;\nimport java.util.List;\n\npublic class ReportView {\n    private JFrame frame;\n    private JTextArea reportArea;\n\n    public ReportView() {\n        frame = new JFrame("Detailed Report");\n        reportArea = new JTextArea();\n        reportArea.setEditable(false);\n        JScrollPane scrollPane = new JScrollPane(reportArea);\n        frame.add(scrollPane, BorderLayout.CENTER);\n        frame.setSize(600, 400);\n        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);\n    }\n\n    public void displayReport(List<String> reportData) {\n        StringBuilder reportBuilder = new StringBuilder();\n        reportBuilder.append("Detailed Report:\\n");\n        for (String line : reportData) {\n            reportBuilder.append(line).append("\\n");\n        }\n        reportArea.setText(reportBuilder.toString());\n        frame.setVisible(true);\n    }\n\n    public static void main(String[] args) {\n        ReportView reportView = new ReportView();\n        List<String> exampleData = List.of(\n            "Entry 1: Good performance",\n            "Entry 2: Needs improvement",\n            "Entry 3: Exceptional results"\n        );\n        reportView.displayReport(exampleData);\n    }\n}
+package com.gradeanalyzer.view;
+
+public class ReportView {
+
+    public void displayDetailedReport(String report) {
+        System.out.println("\n========================================");
+        System.out.println("DETAILED REPORT");
+        System.out.println("========================================");
+        System.out.println(report);
+        System.out.println("========================================");
+    }
+
+    public void displayStatistics(String statistics) {
+        System.out.println("\n--- STATISTICS ---");
+        System.out.println(statistics);
+    }
+
+    public void displayComparison(String comparison) {
+        System.out.println("\n--- COMPARISON ---");
+        System.out.println(comparison);
+    }
+}

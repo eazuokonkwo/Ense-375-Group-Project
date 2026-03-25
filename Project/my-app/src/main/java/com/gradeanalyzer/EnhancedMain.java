@@ -1,1 +1,43 @@
-import java.util.HashMap;\nimport java.util.Map;\n\npublic class EnhancedMain {\n    public static void main(String[] args) {\n        // Example data for analysis\n        Map<String, Integer> studentScores = new HashMap<>();\n        studentScores.put("Alice", 85);\n        studentScores.put("Bob", 90);\n        studentScores.put("Charlie", 78);\n        studentScores.put("Diana", 92);\n\n        reportAnalysis(studentScores);\n    }\n\n    private static void reportAnalysis(Map<String, Integer> scores) {\n        int total = 0;\n        int highest = Integer.MIN_VALUE;\n        int lowest = Integer.MAX_VALUE;\n\n        for (int score : scores.values()) {\n            total += score;\n            if (score > highest) highest = score;\n            if (score < lowest) lowest = score;\n        }\n\n        double average = (double) total / scores.size();\n\n        System.out.println("Total Students: " + scores.size());\n        System.out.println("Average Score: " + average);\n        System.out.println("Highest Score: " + highest);\n        System.out.println("Lowest Score: " + lowest);\n    }\n}
+package com.gradeanalyzer;
+
+import com.gradeanalyzer.model.Assessment;
+import com.gradeanalyzer.model.Student;
+import com.gradeanalyzer.controller.GradeController;
+import com.gradeanalyzer.view.ConsoleView;
+
+public class EnhancedMain {
+    public static void main(String[] args) {
+        Student student = new Student("200477240", "Olly Ogana");
+        student.addAssessment(new Assessment("Assignment", 85, 20));
+        student.addAssessment(new Assessment("Midterm", 78, 30));
+        student.addAssessment(new Assessment("Final", 90, 50));
+
+        GradeController controller = new GradeController();
+        ConsoleView view = new ConsoleView();
+
+        try {
+            controller.validateStudent(student);
+
+            double finalGrade = controller.calculateFinalGrade(student);
+            String letterGrade = controller.getLetterGrade(student);
+            String standing = controller.getStanding(student);
+            double average = controller.getAverageScore(student);
+            double highest = controller.getHighestScore(student);
+            double lowest = controller.getLowestScore(student);
+            String feedback = controller.getFeedback(student);
+
+            view.displayStudentReport(
+                    student,
+                    finalGrade,
+                    letterGrade,
+                    standing,
+                    average,
+                    highest,
+                    lowest,
+                    feedback
+            );
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
