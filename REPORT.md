@@ -406,8 +406,169 @@ Team membership was finalized on January 23, 2026. The fourth team member joined
 
 ---
 
+### 4.7 Meeting 7
+
+**Time:** February 27, 2026, 7:00 pm – 8:15 pm  
+**Agenda:** Develop and document Solution 3 architecture
+
+| Team Member | Previous Task | Completion State | Next Task |
+|------------|--------------|-----------------|-----------|
+| Abdulkarim | Identify architectural improvements for Solution 3 | 100% | Draft Solution 3 system structure |
+| Ebelechukwu | Propose scalability enhancements | 90% | Refine modular layering and component interactions |
+| Gbolabo | Analyze reliability and extensibility gaps | 85% | Integrate validation and testing considerations into design |
+| Oluchukwu | Outline structural goals for Solution 3 | 90% | Begin documentation of Section 3.3 |
+
+---
+
+### 4.8 Meeting 8 
+
+**Time:** March 07, 2026, 6:00 pm – 7:30 pm  
+**Agenda:** Complete Solution 3 (Section 3.3) and finalize report for submission
+
+| Team Member | Previous Task | Completion State | Next Task |
+|------------|--------------|-----------------|-----------|
+| Abdulkarim | Draft Solution 3 architecture | 100% | Final proofreading of Section 3 |
+| Ebelechukwu | Refine modular design and component separation | 100% | Verify consistency across all sections |
+| Gbolabo | Validate alignment with constraints and requirements | 100% | Perform final review of testing considerations |
+| Oluchukwu | Integrate diagrams and formatting | 100% | Prepare final REPORT.md for submission |
+
+---
+
 ## 5. Project Management
-*(To be updated with Gantt chart and task planning)*
+
+Effective project management was essential to ensure timely completion of deliverables and coordination among team members. This section presents a comprehensive analysis of the project timeline, task dependencies, and critical path identification.
+
+### 5.1 Project Timeline Overview
+
+The Student Grade Analyser project spanned 53 days from January 13 to March 7, 2026, with 8 structured team meetings and systematic task completion tracking.
+
+### 5.2 Task Breakdown and Dependencies
+
+| Task ID | Task Name | Duration (Days) | Start Date | End Date | Predecessors | Assigned Member(s) |
+|---------|-----------|----------------|------------|----------|--------------|-------------------|
+| T1 | Draft Introduction Section | 8 | Jan 13 | Jan 21 | - | Abdulkarim |
+| T2 | Draft Problem Definition | 8 | Jan 13 | Jan 21 | - | Ebelechukwu |
+| T3 | GitHub Repository Setup | 8 | Jan 13 | Jan 21 | - | Gbolabo |
+| T4 | Design Requirements (Objectives) | 14 | Jan 21 | Jan 29 | T1 | Abdulkarim |
+| T5 | Design Requirements (Functions) | 14 | Jan 21 | Jan 29 | T2 | Ebelechukwu |
+| T6 | Draft Design Constraints | 14 | Jan 21 | Jan 29 | T3 | Gbolabo |
+| T7 | Review and Refine Introduction | 8 | Jan 27 | Feb 6 | T1 | Oluchukwu |
+| T8 | Draft Solution 1 Description | 8 | Jan 29 | Feb 6 | T4, T5, T6 | Abdulkarim |
+| T9 | Define Solution 1 Components | 8 | Jan 29 | Feb 6 | T4, T5, T6 | Ebelechukwu |
+| T10 | Expand Workflow Explanation | 8 | Jan 29 | Feb 6 | T4, T5, T6 | Gbolabo |
+| T11 | Identify Solution 1 Limitations | 8 | Jan 29 | Feb 6 | T4, T5, T6 | Oluchukwu |
+| T12 | Draft Solution 2 Architecture | 6 | Feb 6 | Feb 12 | T8, T9, T10, T11 | Abdulkarim |
+| T13 | Define Modular Separation Strategy | 6 | Feb 6 | Feb 12 | T8, T9, T10, T11 | Ebelechukwu |
+| T14 | Address Reliability Concerns | 6 | Feb 6 | Feb 12 | T8, T9, T10, T11 | Gbolabo |
+| T15 | Validate Responsibility Allocation | 6 | Feb 6 | Feb 12 | T8, T9, T10, T11 | Oluchukwu |
+| T16 | Identify Architectural Enhancements | 15 | Feb 12 | Feb 27 | T12, T13, T14, T15 | Abdulkarim |
+| T17 | Propose Scalability Improvements | 15 | Feb 12 | Feb 27 | T12, T13, T14, T15 | Ebelechukwu |
+| T18 | Analyze Reliability/Extensibility Gaps | 15 | Feb 12 | Feb 27 | T12, T13, T14, T15 | Gbolabo |
+| T19 | Outline Solution 3 Goals | 15 | Feb 12 | Feb 27 | T12, T13, T14, T15 | Oluchukwu |
+| T20 | Draft Solution 3 Structure | 8 | Feb 27 | Mar 7 | T16, T17, T18, T19 | Abdulkarim |
+| T21 | Refine Modular Layering | 8 | Feb 27 | Mar 7 | T16, T17, T18, T19 | Ebelechukwu |
+| T22 | Integrate Validation/Testing | 8 | Feb 27 | Mar 7 | T16, T17, T18, T19 | Gbolabo |
+| T23 | Begin Section 3.3 Documentation | 8 | Feb 27 | Mar 7 | T16, T17, T18, T19 | Oluchukwu |
+| T24 | Final Proofreading | 1 | Mar 7 | Mar 7 | T20, T21, T22, T23 | Abdulkarim |
+| T25 | Verify Consistency | 1 | Mar 7 | Mar 7 | T20, T21, T22, T23 | Ebelechukwu |
+| T26 | Final Testing Review | 1 | Mar 7 | Mar 7 | T20, T21, T22, T23 | Gbolabo |
+| T27 | Prepare Final Submission | 1 | Mar 7 | Mar 7 | T20, T21, T22, T23 | Oluchukwu |
+
+### 5.3 Critical Path Analysis
+
+Using the Critical Path Method (CPM), the critical path has been identified as:
+
+**Critical Path:** T1 → T4 → T8 → T12 → T16 → T20 → T24
+
+**Total Project Duration:** 53 days  
+**Critical Path Duration:** 53 days
+
+### 5.4 Slack Time Analysis
+
+| Task ID | Task Name | Early Start | Early Finish | Late Start | Late Finish | Total Slack |
+|---------|-----------|-------------|--------------|------------|-------------|-------------|
+| T1 | Draft Introduction | 0 | 8 | 0 | 8 | **0** (Critical) |
+| T2 | Draft Problem Definition | 0 | 8 | 6 | 14 | 6 |
+| T3 | GitHub Repository Setup | 0 | 8 | 6 | 14 | 6 |
+| T4 | Design Requirements (Objectives) | 8 | 22 | 8 | 22 | **0** (Critical) |
+| T5 | Design Requirements (Functions) | 8 | 22 | 8 | 22 | 0 |
+| T6 | Draft Design Constraints | 8 | 22 | 8 | 22 | 0 |
+| T7 | Review Introduction | 14 | 22 | 22 | 30 | 8 |
+| T8 | Draft Solution 1 | 22 | 30 | 22 | 30 | **0** (Critical) |
+| T9 | Define Solution 1 Components | 22 | 30 | 22 | 30 | 0 |
+| T10 | Expand Workflow | 22 | 30 | 22 | 30 | 0 |
+| T11 | Identify Limitations | 22 | 30 | 22 | 30 | 0 |
+| T12 | Draft Solution 2 | 30 | 36 | 30 | 36 | **0** (Critical) |
+| T13 | Modular Separation | 30 | 36 | 30 | 36 | 0 |
+| T14 | Reliability Concerns | 30 | 36 | 30 | 36 | 0 |
+| T15 | Responsibility Allocation | 30 | 36 | 30 | 36 | 0 |
+| T16 | Architectural Enhancements | 36 | 51 | 36 | 51 | **0** (Critical) |
+| T17 | Scalability Improvements | 36 | 51 | 36 | 51 | 0 |
+| T18 | Analyze Gaps | 36 | 51 | 36 | 51 | 0 |
+| T19 | Outline Solution 3 | 36 | 51 | 36 | 51 | 0 |
+| T20 | Solution 3 Structure | 51 | 59 | 51 | 59 | **0** (Critical) |
+| T21 | Modular Layering | 51 | 59 | 51 | 59 | 0 |
+| T22 | Validation/Testing | 51 | 59 | 51 | 59 | 0 |
+| T23 | Section 3.3 Documentation | 51 | 59 | 51 | 59 | 0 |
+| T24 | Final Proofreading | 59 | 60 | 59 | 60 | **0** (Critical) |
+| T25 | Verify Consistency | 59 | 60 | 59 | 60 | 0 |
+| T26 | Final Testing Review | 59 | 60 | 59 | 60 | 0 |
+| T27 | Final Submission Prep | 59 | 60 | 59 | 60 | 0 |
+
+### 5.5 Project Gantt Chart
+
+The Gantt chart above illustrates the complete project timeline, showing task dependencies, critical path activities (highlighted in red), and parallel task execution. The project was organized into 7 distinct phases to ensure logical progression and quality deliverables.
+
+### 5.6 Critical Path Analysis Details
+
+The **Critical Path** represents the longest sequence of dependent tasks that determines the minimum project duration:
+
+**Critical Path Sequence:**
+1. **T1: Draft Introduction** (8 days) → 
+2. **T4: Design Requirements (Objectives)** (14 days) → 
+3. **T8: Draft Solution 1 Description** (8 days) → 
+4. **T12: Draft Solution 2 Architecture** (6 days) → 
+5. **T16: Architectural Enhancements** (15 days) → 
+6. **T20: Solution 3 Structure** (8 days) → 
+7. **T24: Final Proofreading** (1 day)
+
+**Total Critical Path Duration: 60 days**
+
+Any delay in critical path activities would directly impact the project completion date, making these tasks the highest priority for resource allocation and progress monitoring.
+
+### 5.7 Risk Management and Mitigation
+
+| Risk Factor | Impact | Mitigation Strategy | Result |
+|------------|--------|-------------------|--------|
+| Team member availability conflicts | High | Parallel task assignment and cross-training | Successfully managed |
+| Requirements clarification delays | Medium | Regular weekly meetings and documentation | Requirements completed on schedule |
+| Solution iteration complexity | High | Iterative design approach with clear milestones | Three solutions successfully developed |
+| Final integration challenges | Medium | Early integration planning and testing validation | Smooth final integration |
+
+### 5.8 Resource Allocation Efficiency
+
+The project achieved optimal resource utilization through:
+
+- **Parallel Task Execution:** Multiple team members worked simultaneously on independent tasks (e.g., T2, T3 running parallel to T1)
+- **Balanced Workload Distribution:** Each team member contributed equally across all phases
+- **Knowledge Transfer:** Oluchukwu's late joining (Meeting 3) was accommodated without project delay
+- **Iterative Review Process:** Regular checkpoint meetings ensured quality and progress alignment
+
+### 5.9 Key Project Management Insights
+
+#### Success Factors:
+1. **Structured Meeting Schedule:** 8 planned meetings with clear agendas maintained project momentum
+2. **Task Completion Tracking:** 100% completion rate for all critical path tasks
+3. **Documentation-Driven Approach:** Comprehensive [REPORT.md](REPORT.md) provided continuous project visibility
+4. **Modular Development Strategy:** Iterative solution refinement (Solution 1 → 2 → 3) ensured quality output
+
+#### Lessons Learned:
+1. **Early Planning Benefits:** Initial GitHub setup (T3) facilitated seamless collaboration throughout
+2. **Buffer Time Importance:** Non-critical tasks with positive slack provided flexibility for quality improvements
+3. **Cross-Functional Coordination:** Regular handoffs between requirements, design, and implementation phases prevented bottlenecks
+4. **Quality Assurance Integration:** Final review phase (T24-T27) ensured deliverable consistency and completeness
+
+The project was delivered **on schedule** with **zero critical path delays** and **100% task completion rate**, demonstrating effective project management and team coordination.
 
 ---
 
