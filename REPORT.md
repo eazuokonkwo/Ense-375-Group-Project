@@ -573,8 +573,23 @@ The project was delivered **on schedule** with **zero critical path delays** and
 ---
 
 ## 6. Conclusion and Future Work
-*(To be completed)*
+The Student Grade Analyser project successfully addressed the challenges associated with manual and spreadsheet-based grade management. By developing a modular and testable system, the project demonstrated how automated grade calculation and structured validation can significantly improve accuracy, reliability, and usability.
 
+Through an iterative design process, multiple solutions were explored and evaluated, leading to the selection of a modular MVC-based web application. This final solution provided strong separation of concerns, improved maintainability, and supported comprehensive testing strategies including unit testing, integration testing, and validation testing.
+
+The system met all defined design requirements and constraints, particularly in terms of accuracy, privacy, and reliability. It ensures that grade calculations are performed consistently and transparently while preventing invalid inputs and reducing the likelihood of human error.
+
+Despite these strengths, the system has some limitations. It is not currently integrated with institutional learning management systems and is limited to local data storage. Additionally, it does not yet support advanced analytics or multi-course management features.
+
+Future improvements may include:
+
+Integration with external systems such as LMS platforms
+Implementation of user authentication and role-based access
+Cloud-based storage for improved accessibility
+Advanced data visualization and analytics features
+Export functionality for reports (e.g., PDF or Excel)
+
+Overall, the project highlights the importance of software testing and validation in developing reliable systems and demonstrates how proper design and testing practices can lead to effective and scalable solutions.
 ---
 
 ## 7. References
