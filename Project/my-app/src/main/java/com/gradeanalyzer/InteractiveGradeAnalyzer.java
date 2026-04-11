@@ -1,13 +1,13 @@
 package com.gradeanalyzer;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
+
 import com.gradeanalyzer.controller.GradeController;
 import com.gradeanalyzer.model.Assessment;
 import com.gradeanalyzer.model.Student;
 import com.gradeanalyzer.view.ConsoleView;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Scanner;
 
 public class InteractiveGradeAnalyzer {
     private static final Scanner scanner = new Scanner(System.in);
