@@ -442,6 +442,8 @@ Effective project management was essential to ensure timely completion of delive
 
 The Student Grade Analyser project spanned 53 days from January 13 to March 7, 2026, with 8 structured team meetings and systematic task completion tracking.
 
+![Gantt chart](assets/gantt_chart.png)
+
 ### 5.2 Task Breakdown and Dependencies
 
 | Task ID | Task Name | Duration (Days) | Start Date | End Date | Predecessors | Assigned Member(s) |

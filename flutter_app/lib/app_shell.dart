@@ -178,7 +178,7 @@ class _AppShellState extends State<AppShell> {
                         alignment: Alignment.topLeft,
                         children: [
                         ...previousChildren,
-                        if (currentChild != null) currentChild,
+                        ?currentChild,
                         ],
                     );
                     },
