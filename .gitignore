@@ -1,3 +1,4 @@
+# Flutter build artifacts
 flutter_app/.dart_tool/
 flutter_app/build/
 flutter_app/.flutter-plugins
@@ -7,3 +8,14 @@ flutter_app/.pub-cache/
 flutter_app/.pub/
 flutter_app/ios/Pods/
 flutter_app/android/.gradle/
+
+# Maven build artifacts
+Project/my-app/target/
+
+# Java test data (generated at runtime)
+Project/my-app/student_data/*.txt
+
+# IDE
+.idea/
+*.iml
+.DS_Store

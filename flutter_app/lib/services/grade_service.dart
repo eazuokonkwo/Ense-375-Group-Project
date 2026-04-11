@@ -60,15 +60,18 @@ class GradeService {
   }
 
   static double getAverageScore(List<Assessment> assessments) {
+    if (assessments.isEmpty) return 0;
     final sum = assessments.fold<double>(0, (p, a) => p + a.score);
     return sum / assessments.length;
   }
 
   static double getHighestScore(List<Assessment> assessments) {
+    if (assessments.isEmpty) return 0;
     return assessments.map((a) => a.score).reduce((a, b) => a > b ? a : b);
   }
 
   static double getLowestScore(List<Assessment> assessments) {
+    if (assessments.isEmpty) return 0;
     return assessments.map((a) => a.score).reduce((a, b) => a < b ? a : b);
   }
 

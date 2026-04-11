@@ -460,7 +460,7 @@ class StudentReportContent extends StatelessWidget {
           Text(
             'Performance Insight',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
               fontSize: 14,
             ),
           ),
@@ -480,7 +480,7 @@ class StudentReportContent extends StatelessWidget {
                 ? 'Keep maintaining this performance.'
                 : 'Focus on improving weaker assessments.',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.85),
+              color: Colors.white.withValues(alpha: 0.85),
               fontSize: 13,
             ),
           ),
@@ -570,7 +570,7 @@ class StudentReportContent extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             decoration: BoxDecoration(
-              color: standingColor.withOpacity(0.12),
+              color: standingColor.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(999),
             ),
             child: Text(
@@ -620,7 +620,7 @@ class StudentReportContent extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [color, color.withOpacity(0.7)],
+          colors: [color, color.withValues(alpha: 0.7)],
         ),
         borderRadius: BorderRadius.circular(22),
         boxShadow: const [
@@ -809,23 +809,6 @@ class StudentReportContent extends StatelessWidget {
           const SizedBox(height: 16),
           child,
         ],
-      ),
-    );
-  }
-
-  Widget _assessmentBadge(String text, Color background, Color foreground) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: background,
-        borderRadius: BorderRadius.circular(999),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: foreground,
-          fontWeight: FontWeight.w600,
-        ),
       ),
     );
   }

@@ -3,11 +3,20 @@ package com.gradeanalyzer;
 import com.gradeanalyzer.model.Assessment;
 import com.gradeanalyzer.model.Student;
 import com.gradeanalyzer.service.DataPersistenceService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DataPersistenceServiceTest {
+
+    @AfterEach
+    void cleanup() throws Exception {
+        Files.deleteIfExists(Paths.get("student_data", "99999.txt"));
+    }
 
     @Test
     void testSaveAndLoadStudent() throws Exception {

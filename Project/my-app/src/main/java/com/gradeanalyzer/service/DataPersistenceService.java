@@ -47,15 +47,36 @@ public class DataPersistenceService {
         try (BufferedReader reader = Files.newBufferedReader(path)) {
             String id = reader.readLine();
             String name = reader.readLine();
-            int count = Integer.parseInt(reader.readLine());
+            String countLine = reader.readLine();
+
+            if (id == null || name == null || countLine == null) {
+                throw new IOException("Malformed student file: " + studentId);
+            }
+
+            int count;
+            try {
+                count = Integer.parseInt(countLine.trim());
+            } catch (NumberFormatException e) {
+                throw new IOException("Malformed student file: invalid assessment count in " + studentId, e);
+            }
 
             Student student = new Student(id, name);
             List<Assessment> assessments = new ArrayList<>();
 
             for (int i = 0; i < count; i++) {
                 String line = reader.readLine();
+                if (line == null) {
+                    throw new IOException("Malformed student file: missing assessment data in " + studentId);
+                }
                 String[] parts = line.split("\\|");
-                assessments.add(new Assessment(parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2])));
+                if (parts.length < 3) {
+                    throw new IOException("Malformed student file: invalid assessment format in " + studentId);
+                }
+                try {
+                    assessments.add(new Assessment(parts[0], Double.parseDouble(parts[1]), Double.parseDouble(parts[2])));
+                } catch (NumberFormatException e) {
+                    throw new IOException("Malformed student file: invalid numeric value in " + studentId, e);
+                }
             }
 
             student.setAssessments(assessments);

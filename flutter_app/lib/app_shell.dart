@@ -94,14 +94,10 @@ class _AppShellState extends State<AppShell> {
     if (student.assessments.isEmpty) return 0;
 
     double weightedTotal = 0;
-    double totalWeight = 0;
 
     for (final assessment in student.assessments) {
       weightedTotal += assessment.score * (assessment.weight / 100);
-      totalWeight += assessment.weight;
     }
-
-    if (totalWeight == 0) return 0;
 
     return weightedTotal;
   }
@@ -325,12 +321,15 @@ class _AppShellState extends State<AppShell> {
                 color: selected ? const Color(0xFF1456C1) : Colors.white70,
               ),
               const SizedBox(width: 12),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
-                  color: selected ? const Color(0xFF1456C1) : Colors.white,
+              Expanded(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                    color: selected ? const Color(0xFF1456C1) : Colors.white,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
@@ -540,6 +539,21 @@ class _AddStudentPageState extends State<AddStudentPage> {
         weight: _toDouble(row.weightController.text),
       );
     }).toList();
+
+    final totalWeight = assessments.fold<double>(0, (sum, a) => sum + a.weight);
+    if ((totalWeight - 100).abs() > 0.001) {
+      setState(() => _isSaving = false);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Assessment weights must sum to 100%. Current total: ${totalWeight.toStringAsFixed(1)}%',
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
 
     final student = Student(
       id: _studentIdController.text.trim().isEmpty

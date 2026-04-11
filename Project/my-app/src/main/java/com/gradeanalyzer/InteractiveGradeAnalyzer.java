@@ -45,6 +45,7 @@ public class InteractiveGradeAnalyzer {
                     break;
                 case "5":
                     running = false;
+                    scanner.close();
                     view.showMessage("Exiting application.");
                     break;
                 default:
