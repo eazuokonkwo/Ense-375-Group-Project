@@ -65,12 +65,36 @@ The main objectives of this project are to:
 
 ---
 
+## Testing
+
+This project was built for **ENSE 375 – Software Testing and Validation** and includes a comprehensive test suite covering both implementations.
+
+| Project | Test Files | Tests | Coverage Areas |
+|---|---|---|---|
+| Java console app | 10 | 144 | Models, services, controller, persistence, view, integration |
+| Flutter web app | 6 | 133 | Grade service, models, storage, calculations, widget smoke test |
+| **Total** | **16** | **277** | |
+
+### Running Java Tests
+```bash
+cd Project/my-app
+mvn test
+```
+
+### Running Flutter Tests
+```bash
+cd flutter_app
+flutter test
+```
+
+---
+
 ## Repository Structure
 
 ```text
 Ense-375-Group-Project/
 │
-├── flutter_app/                 # Flutter web app version
+├── flutter_app/                    # Flutter web application (primary deliverable)
 │   ├── lib/
 │   │   ├── models/
 │   │   │   ├── student.dart
@@ -82,8 +106,39 @@ Ense-375-Group-Project/
 │   │   │   └── student_report_screen.dart
 │   │   ├── app_shell.dart
 │   │   └── main.dart
+│   ├── test/                       # Flutter test suite (133 tests)
+│   │   ├── widget_test.dart
+│   │   ├── grade_service_test.dart
+│   │   ├── grade_calculations_test.dart
+│   │   ├── assessment_model_test.dart
+│   │   ├── student_model_test.dart
+│   │   └── storage_service_test.dart
 │   ├── web/
-│   ├── pubspec.yaml
-│   └── ...
+│   └── pubspec.yaml
 │
-└── console_app/ or existing console files   # Console-based project version
+├── Project/
+│   └── my-app/                     # Java console application
+│       ├── src/
+│       │   ├── main/java/com/gradeanalyzer/
+│       │   │   ├── controller/     # GradeController
+│       │   │   ├── model/          # Student, Assessment
+│       │   │   ├── service/        # GradeCalculator, GradeValidator, etc.
+│       │   │   ├── view/           # ConsoleView
+│       │   │   ├── Main.java
+│       │   │   └── InteractiveGradeAnalyzer.java
+│       │   └── test/java/com/gradeanalyzer/
+│       │       ├── AssessmentTest.java
+│       │       ├── StudentTest.java
+│       │       ├── GradeCalculatorTest.java
+│       │       ├── GradeValidatorTest.java
+│       │       ├── GradeAnalysisServiceTest.java
+│       │       ├── GradeReportServiceTest.java
+│       │       ├── GradeControllerTest.java
+│       │       ├── DataPersistenceServiceTest.java
+│       │       ├── ConsoleViewTest.java
+│       │       └── IntegrationTest.java
+│       └── pom.xml
+│
+├── assets/                         # Project diagrams and images
+├── LICENSE
+└── README.md
