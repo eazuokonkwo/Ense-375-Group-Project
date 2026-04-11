@@ -596,8 +596,11 @@ Overall, the project highlights the importance of software testing and validatio
 ---
 
 ## 7. References
-*(To be completed using IEEE style)*
+[1] R. Black, E. van Veenendaal, and D. Graham, Foundations of Software Testing: ISTQB Certification, 3rd ed. Andover, U.K.: Cengage Learning, 2015.
 
+[2] P. C. Jorgensen, Software Testing: A Craftsman’s Approach, 4th ed. Boca Raton, FL: CRC Press, 2013.
+
+[3] P. Ammann and J. Offutt, Introduction to Software Testing, 2nd ed. Cambridge, U.K.: Cambridge University Press, 2016.
 ---
 
 ## 8. Appendix
